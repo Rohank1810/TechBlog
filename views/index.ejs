@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Blog - Daily Journal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">AKATSUKI Nodevember</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li id="home"><a href="/">HOME</a></li>
+                    <li id="about"><a href="/about">ABOUT US</a></li>
+                    <li id="contact"><a href="/contact">CONTACT US</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-inner">
+        <div>
+            <h1 class="title">Trending Blogs</h1>
+        </div>
+        <div class="cards-container">
+            <%blogPostArray.forEach((post)=>{%>
+                <div class='card'>
+                    <img src="<%=post.imageURL%>"
+                        alt='place' class='image'></img>
+                    <div class="blog-info">
+                        <div class='blog-details'>
+                            <h4 class='blog-tag'>New</h4>
+                            <h4 class='blog-name'><%=post.title%></h4>
+                        </div>
+                        <div class="description">
+                            <%=post.description%>
+                        </div>
+    
+                    </div>
+    
+                    <div class="button-container">
+                        <a href="/post/<%=post._id%>" class='btn-red btn-read-more'>Read More...</a>
+    
+                        <button class="btn-delete">
+                            <a href="/delete/<%=post._id%>">DEL</a>
+                        </button>
+                    </div>
+                </div>
+            <%})%>
+            
+<!-- 
+            <div class='card'>
+                <img src="https://www.svgrepo.com/show/376337/node-js.svg" alt='place' class='image'></img>
+                <div class="blog-info">
+                    <div class='blog-details'>
+                        <h4 class='blog-tag'>New</h4>
+                        <h4 class='blog-name'>Building Scalable APIs with Node.js and Express</h4>
+                    </div>
+                    <div class="description">
+                        In this blog post, we'll explore the fundamentals of building robust and scalable APIs using
+                        Node.js and Express.js. Learn how to handle routes, middleware, and enhance the functionality of
+                        your web applications.
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <a href="/post" class='btn-red btn-read-more'>Read More...</a>
+                    <button class="btn-delete">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+            <div class='card'>
+                <img src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" alt='place'
+                    class='image'></img>
+                <div class="blog-info">
+                    <div class='blog-details'>
+                        <h4 class='blog-tag'>New</h4>
+                        <h4 class='blog-name'>Harnessing the Power of React.js for Interactive UI</h4>
+                    </div>
+                    <div class="description">
+                        Explore the world of React.js and discover how this JavaScript library can revolutionize the way
+                        you build user interfaces. From component-based architecture to state management, we'll cover it
+                        all. </div>
+                </div>
+
+                <div class="button-container">
+                    <a href="/post" class='btn-red btn-read-more'>Read More...</a>
+                    <button class="btn-delete">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+            <div class='card'>
+                <img src="https://newrelic.com/sites/default/files/styles/800w/public/2021-10/mongo_logo.jpg?itok=Z1PabBZB"
+                    alt='place' class='image'></img>
+                <div class="blog-info">
+                    <div class='blog-details'>
+                        <h4 class='blog-tag'>New</h4>
+                        <h4 class='blog-name'>Demystifying MongoDB: A NoSQL Database Solution</h4>
+                    </div>
+                    <div class="description">
+                        Learn about MongoDB, a popular NoSQL database, and its role in modern web development. Discover
+                        the advantages of using MongoDB for storing and retrieving data, and how it fits into the MERN
+                        stack. </div>
+                </div>
+
+                <div class="button-container">
+                    <a href="/post" class='btn-red btn-read-more'>Read More...</a>
+                    <button class="btn-delete">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+            <div class='card'>
+                <img src="https://i.ibb.co/jhS4qCR/akatsuki.jpg" alt='place' class='image'></img>
+                <div class="blog-info">
+                    <div class='blog-details'>
+                        <h4 class='blog-tag'>New</h4>
+                        <h4 class='blog-name'>Akatsuki Coding Club: Igniting Passion for Programming</h4>
+                    </div>
+                    <div class="description">
+                        Get to know the Akatsuki Coding Club and their mission to inspire and educate aspiring
+                        programmers. Learn about the club's activities, workshops, and how it contributes to the coding
+                        community.
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <a href="/post" class='btn-red btn-read-more'>Read More...</a>
+                    <button class="btn-delete">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+            <div class='card'>
+                <img src="https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo-768x432.png" alt='place'
+                    class='image'></img>
+                <div class="blog-info">
+                    <div class='blog-details'>
+                        <h4 class='blog-tag'>New</h4>
+                        <h4 class='blog-name'>GitHub Essentials: Navigating the Collaboration Hub</h4>
+                    </div>
+                    <div class="description">
+                        Explore the features of Next.js, a powerful React framework. Learn how Next.js simplifies the
+                        process of building server-rendered React applications, and discover its benefits for seamless
+                        client-side navigation. </div>
+                </div>
+
+                <div class="button-container">
+                    <a href="/post" class='btn-red btn-read-more'>Read More...</a>
+                    <button class="btn-delete">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <a href="/compose"><button class='btn-compose'>Compose +</button></a>
+
+    <div class="footer">
+        <p>Made with 🤍 by Akatsuki </p>
+    </div>
+    </div>
+</body>
+
+</html>
